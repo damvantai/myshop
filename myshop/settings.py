@@ -25,7 +25,7 @@ SECRET_KEY = 'jyo$+7m*(mgid70et6(n*0y$^-=5x1q!&s9^y+^2ain_&dlp4u'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0']
 
 
 # Application definition
