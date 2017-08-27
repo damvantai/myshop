@@ -4,7 +4,7 @@ from django.shortcuts import render
 from cart.cart import Cart
 from orders.forms import OrderCreateForm
 from orders.models import OrderItem
-
+from django.shortcuts import render
 
 def order_create(request):
     cart = Cart(request)
@@ -22,9 +22,8 @@ def order_create(request):
             return render(request,
                           'orders/order/created.html',
                           {'orders': order})
-        else:
-            form = OrderCreateForm()
-        return render(request,
-                      'orders/order/create.html',
+    else:
+        form = OrderCreateForm()
+    return render(request, 'orders/order/create.html',
                       {'cart': cart, 'form': form})
 
