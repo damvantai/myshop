@@ -3,6 +3,7 @@ from decimal import Decimal
 from django.conf import settings
 from django.shortcuts import render, get_object_or_404
 
+from paypal.standard.forms import PayPalPaymentsForm
 
 # Create your views here.
 from django.urls import reverse
