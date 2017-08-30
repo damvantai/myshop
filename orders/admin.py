@@ -9,6 +9,12 @@ from django.http import HttpResponse
 from orders.models import OrderItem, Order
 from django.core.urlresolvers import reverse
 
+def order_pdf(obj):
+    return '<a href="{}">PDF</a>'.format(reverse('orders:admin_order_pdf', args=[obj.id]))
+
+order_pdf.allow_tags = True
+order_pdf.short_description = 'PDF bill'
+
 def order_detail(obj):
     return '<a href="{}">View</a>'.format(reverse('orders:admin_order_detail', args=[obj.id]))
 
@@ -44,7 +50,7 @@ class OrderItemInline(admin.TabularInline):
     raw_id_fields = ['product']
 
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ['id', 'first_name', 'last_name', 'email', 'address', 'postal_code', 'city', 'paid', 'created', 'updated', order_detail]
+    list_display = ['id', 'first_name', 'last_name', 'email', 'address', 'postal_code', 'city', 'paid', 'created', 'updated', order_detail, order_pdf]
     list_filter = ['paid', 'created', 'updated']
     inlines = [OrderItemInline]
     actions = [export_to_csv]
