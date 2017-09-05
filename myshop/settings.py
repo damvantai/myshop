@@ -25,7 +25,7 @@ SECRET_KEY = 'jyo$+7m*(mgid70et6(n*0y$^-=5x1q!&s9^y+^2ain_&dlp4u'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '4b41f4dc.ngrok.io', '192.168.1.45']
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '4b41f4dc.ngrok.io', '3b3e6f40.ngrok.io', '3b3e6f40.ngrok.io', '192.168.1.45', '127.0.0.1', 'f560136a.ngrok.io']
 
 
 # Application definition
@@ -133,3 +133,9 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 PAYPAL_RECEIVER_EMAIL = 'tai94bn@gmail.com'
 PAYPAL_TEST = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
+EMAIL_HOST = 'stmp.gmail.com'
+EMAIL_HOST_USER = 'taidcbn@gmail.com'
+EMAIL_HOST_PASSWORD = 'relax1994'
+EMAIL_POST = 587
+EMAIL_USE_TLS = True
