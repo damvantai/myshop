@@ -3,6 +3,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 # Create your views here.
 from cart.cart import Cart
 from cart.form import CartAddProductForm
+from coupons.form import CouponApplyForm
 from shop.models import Product
 
 
@@ -29,4 +30,8 @@ def cart_detail(request):
     cart = Cart(request)
     for item in cart:
         item['update_quantity_form'] = CartAddProductForm(initial={'quantity': item['quantity'], 'update': True})
-    return render(request, 'cart/detail.html', {'cart': cart})
+
+    coupon_apply_form = CouponApplyForm()
+
+    return render(request, 'cart/detail.html', {'cart': cart,
+                  'coupon_apply_form': coupon_apply_form})
